@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7fbff" />
+  <title>Nasrin Khodadadi | Architect</title>
+  <meta name="description" content="Nasrin Khodadadi — Architect | Design, Construction & Project Coordination" />
+  <style>
+    :root{
+      --bg:#f7fbff;
+      --paper:#fbfdff;
+      --navy:#07182e;
+      --navy-2:#0d2743;
+      --ink:#172435;
+      --muted:#5e6a78;
+      --gold:#b79a62;
+      --line:#d8e2ec;
+      --soft:#edf3f8;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:
+        linear-gradient(rgba(7,24,46,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7,24,46,.035) 1px, transparent 1px),
+        var(--bg);
+      background-size:72px 72px;
+    }
+    a{color:inherit;text-decoration:none}
+    .page{
+      position:relative;
+      width:min(100%, 980px);
+      margin:0 auto;
+      background:rgba(251,253,255,.94);
+      min-height:100vh;
+      overflow:hidden;
+      box-shadow:0 18px 60px rgba(7,24,46,.08);
+    }
+    .page:before,.page:after{
+      content:"";
+      position:absolute;
+      z-index:0;
+      pointer-events:none;
+    }
+    .page:before{
+      inset:0 auto 0 18px;
+      width:1px;
+      background:linear-gradient(transparent,var(--gold) 8%,var(--gold) 92%,transparent);
+      opacity:.45;
+    }
+    .page:after{
+      top:0; right:24px; bottom:0; width:1px;
+      background:linear-gradient(transparent,var(--navy) 10%,var(--navy) 90%,transparent);
+      opacity:.3;
+    }
+    .architectural-line{
+      position:absolute; z-index:0; pointer-events:none;
+      border-color:rgba(7,24,46,.22);
+    }
+    .v1{top:0;left:12%;height:250px;border-left:1px solid}
+    .v2{top:44px;right:12%;height:220px;border-left:1px solid}
+    .h1{top:94px;left:0;width:28%;border-top:1px solid}
+    .h2{top:265px;right:0;width:24%;border-top:1px solid}
+    .dotrail{
+      position:absolute; right:42px; top:116px; width:3px; height:80px; z-index:0;
+      background:radial-gradient(circle, var(--navy) 1.2px, transparent 1.3px) center/3px 10px repeat-y;
+      opacity:.8;
+    }
+    header, section, footer{position:relative;z-index:1}
+    header{
+      padding:56px 7% 34px;
+      text-align:center;
+    }
+    .signature{
+      width:min(240px,58vw);
+      aspect-ratio:1/1.06;
+      object-fit:contain;
+      mix-blend-mode:multiply;
+      filter:contrast(1.05);
+      margin:0 auto 12px;
+      display:block;
+    }
+    h1{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:500;
+      letter-spacing:.17em;
+      font-size:clamp(28px,6vw,48px);
+      color:var(--navy);
+      text-transform:uppercase;
+    }
+    .gold-rule{
+      width:150px;height:1px;background:var(--gold);margin:18px auto 16px;position:relative;
+    }
+    .gold-rule:after{
+      content:"";position:absolute;width:9px;height:9px;background:var(--gold);
+      left:50%;top:50%;transform:translate(-50%,-50%);
+    }
+    .title{
+      max-width:700px;margin:0 auto;
+      color:var(--navy-2);
+      font-size:clamp(13px,2.2vw,18px);
+      letter-spacing:.04em;
+    }
+    .about{
+      max-width:720px;margin:28px auto 0;
+      padding:0 8%;
+      text-align:center;
+    }
+    .section-title{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      color:var(--navy); letter-spacing:.28em; text-transform:uppercase;
+      font-size:14px; margin:0 0 18px;
+    }
+    .section-title:before{
+      content:"";width:26px;height:1px;background:var(--gold)
+    }
+    .about p{margin:0;color:#435266;line-height:1.75;font-size:15px}
+    .projects{
+      margin-top:44px;
+      padding:30px 5% 24px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(245,249,253,.88));
+    }
+    .project-grid{display:grid;grid-template-columns:1fr;gap:22px}
+    .project{
+      display:grid;grid-template-columns:180px 1fr;gap:18px;align-items:stretch;
+    }
+    .project-copy{
+      padding:12px 4px;
+      border-left:1px solid var(--gold);
+      padding-left:16px;
+    }
+    .num{color:var(--gold);font-family:Georgia,serif;font-size:22px;letter-spacing:.1em}
+    .project h3{
+      margin:8px 0 5px;
+      color:var(--navy);
+      font-family:Georgia,serif;
+      font-size:28px;font-weight:500;
+    }
+    .meta{font-size:13px;color:#5d6976;margin-bottom:10px}
+    .project p{font-size:13px;line-height:1.6;color:#4f5d6c;margin:0}
+    .photo{
+      min-height:220px;
+      border:1px solid rgba(7,24,46,.08);
+      background:#fff;
+      overflow:hidden;
+      position:relative;
+    }
+    .photo img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s ease}
+    .photo:hover img{transform:scale(1.02)}
+    .expertise{padding:40px 6% 22px}
+    .expertise-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px
+    }
+    .expert{
+      text-align:center;padding:16px 10px;min-height:145px;
+      border-left:1px solid var(--line);
+    }
+    .expert:first-child{border-left:0}
+    .icon{
+      width:48px;height:48px;margin:0 auto 13px;border:1px solid var(--line);
+      display:grid;place-items:center;color:var(--navy);font-size:22px;
+    }
+    .expert b{
+      display:block;color:var(--navy);font-size:12px;letter-spacing:.07em;text-transform:uppercase
+    }
+    .expert span{display:block;margin-top:8px;font-size:12px;line-height:1.5;color:#647181}
+    .connect{padding:34px 6% 42px}
+    .connect-wrap{
+      display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start
+    }
+    .contact-list{display:grid;gap:12px}
+    .contact-row{display:flex;gap:12px;align-items:center;color:#35465a;font-size:14px}
+    .contact-row i{
+      width:30px;height:30px;border:1px solid var(--line);display:grid;place-items:center;
+      color:var(--navy);font-style:normal
+    }
+    .actions{display:grid;gap:12px}
+    .btn{
+      min-height:52px;
+      border:1px solid var(--gold);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 18px;
+      color:var(--navy); background:rgba(255,255,255,.76);
+      font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+      transition:.2s ease;
+    }
+    .btn:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-1px)}
+    .btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .btn.primary:hover{background:var(--navy-2)}
+    footer{
+      background:var(--navy);color:#dce7f1;text-align:center;
+      padding:18px 24px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    }
+    @media (max-width:700px){
+      header{padding-top:42px}
+      .project{grid-template-columns:1fr}
+      .project-copy{order:1}
+      .photo{order:2;min-height:240px}
+      .expertise-grid{grid-template-columns:1fr 1fr}
+      .expert:nth-child(3){border-left:0}
+      .connect-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width:430px){
+      .signature{width:185px}
+      h1{font-size:29px;letter-spacing:.12em}
+      .title{font-size:13px;line-height:1.55}
+      .projects{padding-left:4%;padding-right:4%}
+      .project h3{font-size:24px}
+      .photo{min-height:210px}
+      .expertise-grid{grid-template-columns:1fr 1fr;gap:5px}
+      .expert{padding:14px 6px}
+      footer{font-size:9px;letter-spacing:.12em}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="architectural-line v1"></div>
+    <div class="architectural-line v2"></div>
+    <div class="architectural-line h1"></div>
+    <div class="architectural-line h2"></div>
+    <div class="dotrail"></div>
+
+    <header>
+      <img class="signature" src="assets/signature.jpeg" alt="Nasrin Khodadadi signature mark" />
+      <h1>Nasrin Khodadadi</h1>
+      <div class="gold-rule"></div>
+      <div class="title">Architect | Design, Construction &amp; Project Coordination</div>
+    </header>
+
+    <section class="about">
+      <h2 class="section-title">About</h2>
+      <p>
+        Architect with 12+ years of experience across architectural design, site supervision
+        and project coordination in residential, commercial and hospitality projects in Iran,
+        Bulgaria and the UK.
+      </p>
+    </section>
+
+    <section class="projects">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="project-grid">
+        <article class="project">
+          <div class="project-copy">
+            <div class="num">01</div>
+            <h3>RASMIO</h3>
+            <div class="meta">Office Interior · Isfahan</div>
+            <p>Contemporary office interior focused on refined materials, controlled lighting and functional zoning.</p>
+          </div>
+          <div class="photo"><img src="assets/rasmio.jpeg" alt="RASMIO office interior project" /></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy">
+            <div class="num">02</div>
+            <h3>Desert Rose</h3>
+            <div class="meta">Courtyard Design · Isfahan</div>
+            <p>A layered courtyard composition combining stone, water, timber, planting and night lighting.</p>
+          </div>
+          <div class="photo"><img src="assets/desert_rose.jpeg" alt="Desert Rose courtyard project" /></div>
+        </article>
+
+        <article class="project">
+          <div class="project-copy">
+            <div class="num">03</div>
+            <h3>House for a Poet</h3>
+            <div class="meta">Residential Renovation</div>
+            <p>A colourful open-plan home renovation bringing the kitchen, living and reception spaces together.</p>
+          </div>
+          <div class="photo"><img src="assets/house_poet.jpeg" alt="House for a Poet residential renovation" /></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="expertise">
+      <h2 class="section-title">Expertise</h2>
+      <div class="expertise-grid">
+        <div class="expert"><div class="icon">⌂</div><b>Architectural Design</b><span>Concept to detailed design with spatial precision.</span></div>
+        <div class="expert"><div class="icon">⌁</div><b>Site Supervision</b><span>On-site oversight ensuring quality and design integrity.</span></div>
+        <div class="expert"><div class="icon">✓</div><b>Project Coordination</b><span>Clear coordination across teams, suppliers and delivery.</span></div>
+        <div class="expert"><div class="icon">◎</div><b>Client &amp; Team Collaboration</b><span>Collaborative communication focused on project goals.</span></div>
+      </div>
+    </section>
+
+    <section class="connect">
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="connect-wrap">
+        <div class="contact-list">
+          <div class="contact-row"><i>⌖</i><span>Sheffield, United Kingdom</span></div>
+          <a class="contact-row" href="tel:+447934227948"><i>☎</i><span>07934 227948</span></a>
+          <a class="contact-row" href="mailto:nasrin.kh59@gmail.com"><i>✉</i><span>nasrin.kh59@gmail.com</span></a>
+          <a class="contact-row" href="https://www.linkedin.com/in/nasrin-khodadadi-66ab43266" target="_blank" rel="noopener"><i>in</i><span>LinkedIn</span></a>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="https://drive.google.com/file/d/1GpJ-O606GM7tJakeNDgvSeLNl0E9RW4-/view?usp=drivesdk" target="_blank" rel="noopener"><span>View CV</span><span>↗</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/nasrin-khodadadi-66ab43266" target="_blank" rel="noopener"><span>LinkedIn</span><span>↗</span></a>
+          <a class="btn" href="mailto:nasrin.kh59@gmail.com"><span>Email Me</span><span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>Creating spaces · Building value · Delivering purpose</footer>
+  </main>
+</body>
+</html>
